@@ -54,13 +54,13 @@ provisionally reordered and grouped these are:
 	- c: insert fine notification
 	- d: add penalty (optional, occurs for late payment?)
 	- e: payment
-	- 
+	- = = = = =
 	- f: send appeal to prefecture
 	- g: insert date appeal to prefecture 
 	- h: receive results appeal to prefecture
 	- i: notify results appeal to offender
 	- j: appeal to judge
-	- 
+	- = = = =
 	- k: send for credit collection
 - the events a, b and c almost always occur (their dotted lines are solid) 
 - the lines a, b, c lines have constant colour. The colour represents the index of the event in the trace (is it the first, second, third, etc. event in the trace). So the a, b and c are processed in a fixed sequence (probably a->b->c)
