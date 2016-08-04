@@ -6,20 +6,20 @@ Date:  august 2016
 
 ## introduction
 
-This report documents the use of [ProM Lite](http://www.promtools.org/doku.php?id=promlite11) to explore and analyse process behaviour and to find the process structure.
+This report documents the use of [ProM Lite](http://www.promtools.org/doku.php?id=promlite11) to explore and analyse process behaviour and to find the process structure.  
 The analysis is a mini project that was suggested by the authors of the TUe/FutureLearn MOOC [Introduction to Process Mining with ProM](https://www.futurelearn.com/courses/process-mining). 
 
-The data consist of an event log,  recording the processing of traffic fines issued by the Italian police.
-Beyond that, no information about the process was given. 
+The data consist of an event log,  recording the processing of traffic fines issued by the Italian police.  
+Beyond that, no information about the process was given.   
 All other information had to be deduced from the data in the event-log.
 
 .
 
 ## 1 - data acquisition
 
-The data were collected by the authors of the MOOC in a file Road_Traffic_Fine_Management_Process.xes.gz
-The data were already correctly formatted to be used in ProM.
-The file could be downloaded from the internet.
+The data were collected by the authors of the MOOC in a file Road_Traffic_Fine_Management_Process.xes.gz  
+The data were already correctly formatted to be used in ProM.  
+The file could be downloaded from the internet.  
 
 .
  
