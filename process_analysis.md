@@ -1,8 +1,8 @@
 
 # Process analysis with ProM#
 
-Author:  W.Dijkhuis 
-Date:  august 2016
+Author:  W.Dijkhuis   
+Date:  august 2016   
 
 ## introduction
 
