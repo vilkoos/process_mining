@@ -101,7 +101,7 @@ Figure 2d shows how cases are processed in time. On the horizontal axis the trac
      
 The explore event log (trace variants) visualization option provides and easy way to find typical way to go trough the process. Figure 3 shows the five most common trace types.
 
-#### figure 3 -  five most common traces
+#### figure 3 -  the five most common traces
 
 ![figure 3 -  five most common traces](fig03_top_5_traces.jpg) 
 
@@ -114,6 +114,50 @@ Here we read:
 (are these cases still in progress? or "lost" in the system?)
 - the hypothesised order a->b->c->(d)->e sequence is clearly visible.
 - it is possible to pay in instalments.
+
+The "mine for fuzzy model" plug-in can produce a simple preliminary process model.  
+After the (laborious!) intervention of changing the layout by hand the result can look as in figure 4. 
+
+#### Figure 4a - a preliminary process model
+
+![figure 4a - preliminary process model](fig04_fuzzy_mining_process.jpg) 
+
+The model has several remarkable features.
+
+To start with it is not clear what the possible end-states of the process are. One possible interpretation is:
+
+- The process ends when the fine is paid in one ore more instalments.   
+However even after payment, a penalty can be added  (if the fine is not fully paid on time?).     
+So one way the process can end is paying fully on time.   
+From figure 3 we know that about 30% of cases end like this.
+- The last step in the process can also be the "Send for credit collection complete".   
+Note that for the offender the case has not ended yet, but the police has handed the "problem" over to the credit collecting authority, so the police has done its work, for them the case is closed.  
+From figure 3 we know that about 38% of cases end like this. 
+- A case can also end after appeal to the Prefecture (if the appeal is granted and the offender notified).   
+If the appeal is not granted the offender can appeal to a Judge.  
+It is not clear what happens when the first appeal is not granted and the offender does not appeal to a judge.
+- Finally a case can end when a judge grants an appeal. 
+
+Secondly, from figure 3 we know that about 10% of cases end in "add penalty" followed by "payment".  
+The process model in figure 4 does not allow for this possibility at all.  
+(maybe the arc between "payment" and "add penalty" should point the other way?).
+
+Thirdly, from figure 3 we know that almost 14% of cases consists of "create fine" followed by "send fine" and nothing else. The logical next step "insert fine notification" is missing. One possible explanation would be that the notification is sent to an address where the offender is unknown. The notification can not be delivered, the fine is non-collectable, the process ends here. If that were the case there should be an activity "insert fine is not notable". Maybe the designers of the event log forgot to record this activity.   
+
+**Note** the event-log is not the only possible source of information.  
+Subject matter experts can probably solve most problems we encountered.
+
+The "mine Petri net with inductive miner" option can produce an somewhat more detailed preliminary model.
+
+#### Figure 4b - a preliminary Petri-net process model
+
+![figure 4b - a preliminary Petri-net process model](fig04b_inductive_miner_petrinet.jpg) 
+
+The model has several remarkable features.
+
+First all activities except "create fine" and "add penalty" can be bypassed/skipped (there is a black box directly parallel to those activity). 
+
+Second It is even possible that the whole process consist of only the first step "create fine" (follow the "uppermost" path trough the graph).
 
 .
 
