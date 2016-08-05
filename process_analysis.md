@@ -98,6 +98,8 @@ Note that figure 2c has strange features.
 - there are two cases that have index 12 but have no index 11.      
 
 Figure 2d shows how cases are processed in time. On the horizontal axis the trace index is displayed (first trace in the file, second third etc.)
+
+-
      
 The explore event log (trace variants) visualization option provides and easy way to find typical way to go trough the process. Figure 3 shows the five most common trace types.
 
@@ -115,6 +117,8 @@ Here we read:
 - the hypothesised order a->b->c->(d)->e sequence is clearly visible.
 - it is possible to pay in instalments.
 
+-
+
 The "mine for fuzzy model" plug-in can produce a simple preliminary process model.  
 After the (laborious!) intervention of changing the layout by hand the result can look as in figure 4. 
 
@@ -126,7 +130,7 @@ The model has several remarkable features.
 
 To start with it is not clear what the possible end-states of the process are. One possible interpretation is:
 
-- The process ends when the fine is paid in one ore more instalments.   
+- The process ends when the fine is paid in one or more instalments.   
 However even after payment, a penalty can be added  (if the fine is not fully paid on time?).     
 So one way the process can end is paying fully on time.   
 From figure 3 we know that about 30% of cases end like this.
@@ -147,6 +151,8 @@ Thirdly, from figure 3 we know that almost 14% of cases consists of "create fine
 **Note** the event-log is not the only possible source of information.  
 Subject matter experts can probably solve most problems we encountered.
 
+-
+
 The "mine Petri net with inductive miner" option can produce an somewhat more detailed preliminary model.
 
 #### Figure 4b - a preliminary Petri-net process model
@@ -155,13 +161,65 @@ The "mine Petri net with inductive miner" option can produce an somewhat more de
 
 The model has several remarkable features.
 
-First all activities except "create fine" and "add penalty" can be bypassed/skipped (there is a black box directly parallel to those activity). 
+- First all activities except "create fine" and "add penalty" can be bypassed/skipped (there is a black box directly parallel to those activity). 
+- Second It is even possible that the whole process consist of only the first step "create fine" (follow the "uppermost" path trough the graph).
+- Third there are no loops in figure 4b. Even the repeated payment loop that we can see in figure 3 can not be produced by the Petri net from figure 4b. According to figure 4b one can do a payment only once per trace.
+- Fourth in figure 4b there is no direct connection between the "add penalty" and the "payment" activity. From figure 3 we know that about 10% of cases end that way.
 
-Second It is even possible that the whole process consist of only the first step "create fine" (follow the "uppermost" path trough the graph).
+-
+
+A very mysterious pattern occurs when we make a  dotted chart that shows how events occur in time.  
+
+#### figure 5 - dotted chart: trace processing in time (colour represents event name)
+
+![figure 5 - dotted chart: trace processing in time](fig05_dotted_chart_tracesstarttime_by_eventime.jpg) 
+ 
+When cases are entered when they are processed in reality we would expect a line around the main diagonal. 
+This expected band around the main diagonal is clearly visible e here., but there is much much more.
+
+The dark green vertical stripes are credit collection events, that are preformed once each year.
+
+Many event time stamps are years after the trace  start time. This might be explained when large part of the data were entered into the system retrospectively. However there are also many traces that are entered before they occur. 
+
+Something very funny is going on here, about half of the data are positioned on strange and even impossible positions in figure 5.      
 
 .
 
 ## 3 - data filtering
 
+Figure 6 gives a hint which cases to select to get data that do behave orderly (not crazy as in figure 5).
 
+#### Figure 6 - trace concept name by time stamp  (colour represents event name)
+
+![figure 4b - 6 - trace concept name by time stamp](fig06_traceconcept_name_by_time.jpg) 
+
+If we select traces with concept name between S130,000 and S150,000 then we have a data set that develops orderly along the main diagonal. It will be data of 2008, 2009, and 2010, so we may assume that most cases are closed (the data collection continuous until the middle 2013, so there are 3.5 years to close cases from 2010).
+
+The Filter Log on Trace Attributes plug-in can filter on concept name. Select all traces with name between s130,000 and s150,000 (and for reuse, export the result to disk, export as .xes file).
+
+If we show figure 5 for this subset we get:
+
+#### figure 5b - dotted chart for subset: trace processing in time (colour represents event name)
+
+![figure 5 - dotted chart for subset: trace processing in time](fig05b_dotted_chart_tracesstarttime_by_eventime_for_subset.jpg) 
+
+The shown behaviour makes sense. Traces start with a "create fine" event (light green)  are often followed by a "payment"  event (yellow) and then by a insert fine (dark blue) etc. Note that there is little activity after 2012, so we may assume most that most cases are closed.
+
+According to the log visualizer there are 10441 traces and 36666 events in our selection. This is ample data to work with. 
+
+
+Repeating figure 3 for the subset gives:
+
+#### figure 3b - the five most common subset traces 
+
+![figure 3b - the five most common subset traces](fig03b_top_5_traces_for_subset.jpg) 
+           
+These five patterns cover about 95% of cases
+
+**Note**  
+- the top 4 traces in figures 3 and 3a are the same (slightly repositioned).  
+- the last trace in 3a ends in send appeal to prefecture. According to common sense this can not be an end event of a trace (the prefecture has yet to do its work). Probably these cases (2.15%!) are still open (Italian justice is famous for working very slow).
+
+
+ 
    
