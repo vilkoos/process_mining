@@ -29,7 +29,7 @@ The the ProM log visualizer gives the following overview
 
 #### figure 1 - log visualizer results
 
-![figure 1 - visualizer results](.\fig\fig01_log_visualizer.jpg) 
+![figure 1 - visualizer results](.\fig\\fig01_log_visualizer.jpg) 
 
 Here we read:
 
@@ -41,7 +41,7 @@ Here we read:
 
 #### figure 2a - dotted chart: event name by time (colour represents index)
 
-![figure 2a - dotted chart: event name by time](.\fig\fig02a_dotted_chart_eventname_by_time.jpg) 
+![figure 2a - dotted chart: event name by time](.\fig\\fig02a_dotted_chart_eventname_by_time.jpg) 
 
 Here we read:
 
@@ -74,7 +74,7 @@ Here we can see which colour will represents which event in figure 2c .
 
 #### figure 2b - dotted chart: colour per event name (colour represents event name)
 
-![figure 2b - dotted chart: colour per event name](.\fig\fig02b_dotted_chart_colour_per_eventname.jpg) 
+![figure 2b - dotted chart: colour per event name](.\fig\\fig02b_dotted_chart_colour_per_eventname.jpg) 
 
 Now we can create figure 2c.
 
@@ -104,7 +104,7 @@ The explore event log (trace variants) visualization option provides and easy wa
 
 #### figure 3 -  the five most common traces
 
-![figure 3 -  five most common traces](.\fig\fig03_top_5_traces.jpg) 
+![figure 3 -  five most common traces](.\fig\\fig03_top_5_traces.jpg) 
 
 Here we read:
 
@@ -123,7 +123,7 @@ After the (laborious!) intervention of changing the layout by hand the result ca
 
 #### Figure 4a - a preliminary process model
 
-![figure 4a - preliminary process model](.\fig\fig04_fuzzy_mining_process.jpg) 
+![figure 4a - preliminary process model](.\fig\\fig04_fuzzy_mining_process.jpg) 
 
 The model has several remarkable features.
 
@@ -156,7 +156,7 @@ The "mine Petri net with inductive miner" option can produce an somewhat more de
 
 #### Figure 4b - a preliminary Petri-net process model
 
-![figure 4b - a preliminary Petri-net process model](.\fig\fig04b_inductive_miner_petrinet.jpg) 
+![figure 4b - a preliminary Petri-net process model](.\fig\\fig04b_inductive_miner_petrinet.jpg) 
 
 The model has several remarkable features.
 
@@ -171,7 +171,7 @@ A very mysterious pattern occurs when we make a  dotted chart that shows how eve
 
 #### figure 5 - dotted chart: trace processing in time (colour represents event name)
 
-![figure 5 - dotted chart: trace processing in time](.\fig\fig05_dotted_chart_tracesstarttime_by_eventime.jpg) 
+![figure 5 - dotted chart: trace processing in time](.\fig\\fig05_dotted_chart_tracesstarttime_by_eventime.jpg) 
  
 When cases are entered when they are processed in reality we would expect a line around the main diagonal. 
 This expected band around the main diagonal is clearly visible e here., but there is much much more.
@@ -190,7 +190,7 @@ Figure 6 gives a hint which cases to select to get data that do behave orderly (
 
 #### Figure 6 - trace concept name by time stamp  (colour represents event name)
 
-![figure 4b - 6 - trace concept name by time stamp](.\fig\fig06_traceconcept_name_by_time.jpg) 
+![figure 4b - 6 - trace concept name by time stamp](.\fig\\fig06_traceconcept_name_by_time.jpg) 
 
 If we select traces with concept name between S130,000 and S150,000 then we have a data set that develops orderly along the main diagonal. It will be data of 2008, 2009, and 2010, so we may assume that most cases are closed (the data collection continuous until the middle 2013, so there are 3.5 years to close cases from 2010).
 
@@ -211,7 +211,7 @@ Repeating figure 3 for the subset gives:
 
 #### figure 3b - the five most common subset traces 
 
-![figure 3b - the five most common subset traces](.\fig\fig03b_top_5_traces_for_subset.jpg) 
+![figure 3b - the five most common subset traces](.\fig\\fig03b_top_5_traces_for_subset.jpg) 
            
 These five patterns cover about 95% of cases
 
@@ -237,7 +237,7 @@ Repeating figure 3 for the new subset gives:
 
 #### figure 3c - the five most common valid-end subset traces. 
       
-![figure 3c - the five most common valid-end subset traces](.\fig\fig03c_top_5_traces_for_valid_ends_subset.jpg)
+![figure 3c - the five most common valid-end subset traces](.\fig\\fig03c_top_5_traces_for_valid_ends_subset.jpg)
 
 Futher more there are 6 traces (in 5 variants) that end in "appeal to Judge" and 2 cases end in "notify results appeal to offender". All 38 other cases where "notify results appeal to offender" does occur end in one of the three other valid ends. **note** only 8 traces out of 8534 end with  a"appeal to Judge" or "notify results appeal to offender", we could remove these without significant loss.
 
@@ -247,7 +247,7 @@ First lets make the equivalent of figure 4a for our filtered data (i.e. use "min
 
 #### Figure 4c - a fuzzy process model on filtered data
 
-![figure Figure 4c - a fuzzy process model on filtered data](.\fig\fig04c_fuzzy_mining_process_on_valid_ends_subset.jpg) 
+![figure Figure 4c - a fuzzy process model on filtered data](.\fig\\fig04c_fuzzy_mining_process_on_valid_ends_subset.jpg) 
 
 This model is largely correct (i.e. in conformance with that which we know) and plausible.  
 - The two most common trace patterns from figure 3c are clearly visible.
