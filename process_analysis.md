@@ -152,7 +152,8 @@ Subject matter experts can probably solve most problems we encountered.
 
 -----
 
-The "mine Petri net with inductive miner" option can produce an somewhat more detailed preliminary model.
+The "mine Petri net with inductive miner" option can produce an somewhat more detailed preliminary model.  
+(use the zoom capabilities of your browser to enlarge the figure) 
 
 #### Figure 4b - a preliminary Petri-net process model
 
@@ -250,7 +251,7 @@ First lets make the equivalent of figure 4a for our filtered data (i.e. use "min
 ![figure Figure 4c - a fuzzy process model on filtered data](./fig/fig04c_fuzzy_mining_process_on_valid_ends_subset.jpg) 
 
 This model is largely correct (i.e. in conformance with that which we know) and plausible.  
-- The two most common trace patterns from figure 3c are clearly visible.
+- The two most common trace patterns (86% of behaviour) from figure 3c are clearly visible.
 - the Prefecture appeal procedure has been found.
 - there is a payment loop (and a transition to "send for credit collection").
 
@@ -261,8 +262,46 @@ The most troubling features are:
 
 ----
 
+The "mine Petri net with inductive miner" option can produce the equivalent of figure 4b.  
+(use the zoom capabilities of your browser to enlarge the figure) 
 
- 
- 
+#### Figure 4d - a Petri-net process model on filtered data
 
+![figure 4d - a Petri-net process model on filtered data](./fig/fig04d_inductive_miner_petrinet_on_valid_ends_subset.jpg) 
+
+This model is largely correct (i.e. in conformance with that which we know) and plausible.  
+- Four of the five most common traces (95.8% of behaviour) can be produced by the net
+
+The remaining problems are:
+- the "payment" loop is missing
+- the model allows for more behaviour than is present in the traces (i.e. precision is not perfect)  
+e.g. a trace consisting of only a "create fine" is possible
+also there can be an appeal to Judge without a previous verdict of a Prefecture
+
+The model could be easily adapted to solve the loop and the previous verdict problem.
+
+The "replay a log on Petri-net for Conformance Analysis" plug-in can check how well the Petri-net can reproduce the traces in the input event-log (the default settings were used). 
+
+This plug-in produces this variant of figure 4d.   
+(use the zoom capabilities of your browser to enlarge the figure) 
+
+#### Figure 4e - a Petri-net process model on filtered data with confirmation info
+
+![figure 4e - a Petri-net process model on filtered data](./fig/fig04e_inductive_miner_petrinet_on_valid_ends_subset_with_errors.jpg) 
+
+
+Figure shows the global statistics for the match.
+
+#### Figure 7a - global statistics for the match of a Petri-net model with filtered data event-log
+
+![figure 7a - global statistics](./fig/fig07_global_fitness_of_model_4d.jpg) 
+ 
+The traces in the event-log and the Petri-net match very well, the agreement is about 99.5%.
+
+Figure 7b summarizes the errors made per event type.
+
+#### Figure 7b - errors made per event type
+
+![figure 7b - errors made per event type](./fig/fig07b_errors_per_event_type.jpg) 
+ 
        
