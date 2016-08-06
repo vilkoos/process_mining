@@ -29,7 +29,7 @@ The the ProM log visualizer gives the following overview
 
 #### figure 1 - log visualizer results
 
-![figure 1 - visualizer results](fig01_log_visualizer.jpg) 
+![figure 1 - visualizer results](.\fig\fig01_log_visualizer.jpg) 
 
 Here we read:
 
@@ -41,10 +41,9 @@ Here we read:
 
 #### figure 2a - dotted chart: event name by time (colour represents index)
 
-![figure 2a - dotted chart: event name by time](fig02a_dotted_chart_eventname_by_time.jpg) 
+![figure 2a - dotted chart: event name by time](.\fig\fig02a_dotted_chart_eventname_by_time.jpg) 
 
 Here we read:
-
 
 - The data were collected between 2000 and 2013 (so we have about fourteen years of data).
 - There are 11 event types, 
@@ -75,13 +74,13 @@ Here we can see which colour will represents which event in figure 2c .
 
 #### figure 2b - dotted chart: colour per event name (colour represents event name)
 
-![figure 2b - dotted chart: colour per event name](fig02b_dotted_chart_colour_per_eventname.jpg) 
+![figure 2b - dotted chart: colour per event name](.\fig\fig02b_dotted_chart_colour_per_eventname.jpg) 
 
 Now we can create figure 2c.
 
 #### figure 2c - dotted chart: index by time (colour represents event name)
 
-![figure 2c - dotted chart: index by time ](fig02c_dotted_chart_index_by_time.jpg) 
+![figure 2c - dotted chart: index by time ](.\fig\fig02c_dotted_chart_index_by_time.jpg) 
 
 Here we read:
 
@@ -99,13 +98,13 @@ Note that figure 2c has strange features.
 
 Figure 2d shows how cases are processed in time. On the horizontal axis the trace index is displayed (first trace in the file, second third etc.)
 
--
+------
      
 The explore event log (trace variants) visualization option provides and easy way to find typical way to go trough the process. Figure 3 shows the five most common trace types.
 
 #### figure 3 -  the five most common traces
 
-![figure 3 -  five most common traces](fig03_top_5_traces.jpg) 
+![figure 3 -  five most common traces](.\fig\fig03_top_5_traces.jpg) 
 
 Here we read:
 
@@ -117,14 +116,14 @@ Here we read:
 - the hypothesised order a->b->c->(d)->e sequence is clearly visible.
 - it is possible to pay in instalments.
 
--
+-----
 
 The "mine for fuzzy model" plug-in can produce a simple preliminary process model.  
 After the (laborious!) intervention of changing the layout by hand the result can look as in figure 4. 
 
 #### Figure 4a - a preliminary process model
 
-![figure 4a - preliminary process model](fig04_fuzzy_mining_process.jpg) 
+![figure 4a - preliminary process model](.\fig\fig04_fuzzy_mining_process.jpg) 
 
 The model has several remarkable features.
 
@@ -151,13 +150,13 @@ Thirdly, from figure 3 we know that almost 14% of cases consists of "create fine
 **Note** the event-log is not the only possible source of information.  
 Subject matter experts can probably solve most problems we encountered.
 
--
+-----
 
 The "mine Petri net with inductive miner" option can produce an somewhat more detailed preliminary model.
 
 #### Figure 4b - a preliminary Petri-net process model
 
-![figure 4b - a preliminary Petri-net process model](fig04b_inductive_miner_petrinet.jpg) 
+![figure 4b - a preliminary Petri-net process model](.\fig\fig04b_inductive_miner_petrinet.jpg) 
 
 The model has several remarkable features.
 
@@ -166,13 +165,13 @@ The model has several remarkable features.
 - Third there are no loops in figure 4b. Even the repeated payment loop that we can see in figure 3 can not be produced by the Petri net from figure 4b. According to figure 4b one can do a payment only once per trace.
 - Fourth in figure 4b there is no direct connection between the "add penalty" and the "payment" activity. From figure 3 we know that about 10% of cases end that way.
 
--
+----
 
 A very mysterious pattern occurs when we make a  dotted chart that shows how events occur in time.  
 
 #### figure 5 - dotted chart: trace processing in time (colour represents event name)
 
-![figure 5 - dotted chart: trace processing in time](fig05_dotted_chart_tracesstarttime_by_eventime.jpg) 
+![figure 5 - dotted chart: trace processing in time](.\fig\fig05_dotted_chart_tracesstarttime_by_eventime.jpg) 
  
 When cases are entered when they are processed in reality we would expect a line around the main diagonal. 
 This expected band around the main diagonal is clearly visible e here., but there is much much more.
@@ -191,7 +190,7 @@ Figure 6 gives a hint which cases to select to get data that do behave orderly (
 
 #### Figure 6 - trace concept name by time stamp  (colour represents event name)
 
-![figure 4b - 6 - trace concept name by time stamp](fig06_traceconcept_name_by_time.jpg) 
+![figure 4b - 6 - trace concept name by time stamp](.\fig\fig06_traceconcept_name_by_time.jpg) 
 
 If we select traces with concept name between S130,000 and S150,000 then we have a data set that develops orderly along the main diagonal. It will be data of 2008, 2009, and 2010, so we may assume that most cases are closed (the data collection continuous until the middle 2013, so there are 3.5 years to close cases from 2010).
 
@@ -201,7 +200,7 @@ If we show figure 5 for this subset we get:
 
 #### figure 5b - dotted chart for subset: trace processing in time (colour represents event name)
 
-![figure 5 - dotted chart for subset: trace processing in time](fig05b_dotted_chart_tracesstarttime_by_eventime_for_subset.jpg) 
+![figure 5 - dotted chart for subset: trace processing in time](.\fig\fig05b_dotted_chart_tracesstarttime_by_eventime_for_subset.jpg) 
 
 The shown behaviour makes sense. Traces start with a "create fine" event (light green)  are often followed by a "payment"  event (yellow) and then by a insert fine (dark blue) etc. Note that there is little activity after 2012, so we may assume most that most cases are closed.
 
@@ -212,7 +211,7 @@ Repeating figure 3 for the subset gives:
 
 #### figure 3b - the five most common subset traces 
 
-![figure 3b - the five most common subset traces](fig03b_top_5_traces_for_subset.jpg) 
+![figure 3b - the five most common subset traces](.\fig\fig03b_top_5_traces_for_subset.jpg) 
            
 These five patterns cover about 95% of cases
 
@@ -220,6 +219,50 @@ These five patterns cover about 95% of cases
 - the top 4 traces in figures 3 and 3a are the same (slightly repositioned).  
 - the last trace in 3a ends in send appeal to prefecture. According to common sense this can not be an end event of a trace (the prefecture has yet to do its work). Probably these cases (2.15%!) are still open (Italian justice is famous for working very slow).
 
+-----
+
+Legal ends of traces might be "payment" and "send to credit collection". In exceptional cases a trace might end with "notify results appeal to offender" or "appeal to Judge complete" (see figure 4).
+
+The "Filter Log using Simple Heuristics" can be used to remove all traces that have no valid end, i.e. use:
+
+- valid begin: "create fine".
+- valid end: "payment", "send to credit collection", "notify results appeal to offender" or "appeal to Judge complete"
+- keep all events.
+ 
+According to the log visualizer there are 8534 traces and 31737 events in our selection. This is ample data to work with. 
+
+**Note** that  10441 - 8534 = 1907 traces (18%) were eliminated. That would mean that about 18% of cases are "lost" in the system or still in progress. From figure 3b we know that about 15% of the traces in our subset consist of "create fine" followed by "send fine", the trace ends there, possibly because the offender is unknown at the address were the fine is sent to.
+
+Repeating figure 3 for the new subset gives:
+
+#### figure 3c - the five most common valid-end subset traces. 
+      
+![figure 3c - the five most common valid-end subset traces](.\fig\fig03c_top_5_traces_for_valid_ends_subset.jpg)
+
+Futher more there are 6 traces (in 5 variants) that end in "appeal to Judge" and 2 cases end in "notify results appeal to offender". All 38 other cases where "notify results appeal to offender" does occur end in one of the three other valid ends. **note** only 8 traces out of 8534 end with  a"appeal to Judge" or "notify results appeal to offender", we could remove these without significant loss.
+
+## 4 - process discovery on filtered data
+
+First lets make the equivalent of figure 4a for our filtered data (i.e. use "mine for fuzzy model" plug-in).
+
+#### Figure 4c - a fuzzy process model on filtered data
+
+![figure Figure 4c - a fuzzy process model on filtered data](.\fig\fig04c_fuzzy_mining_process_on_valid_ends_subset.jpg) 
+
+This model is largely correct (i.e. in conformance with that which we know) and plausible.  
+- The two most common trace patterns from figure 3c are clearly visible.
+- the Prefecture appeal procedure has been found.
+- there is a payment loop (and a transition to "send for credit collection").
+
+The most troubling features are:
+- three of the patterns of figure 3c (12% of cases) can not be produced by the model.
+- there is no direct link from "add penalty" to "payment" (figure 3c shows that at least 11.5% of traces use this transition, the lack of that transition is a big problem).
+- There is a direct link from "create fine" to "appeal to Judge". Non of the traces in our data has this transition. "Appeal to Judge" can only occur after the verdict of the Prefecture event "Notify results Appeal to offender". The last transition is missing in the model.
+
+----
+
 
  
-   
+ 
+
+       
