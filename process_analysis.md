@@ -376,7 +376,7 @@ García-Bañuelos et al. present a somewhat different Perti_net model in [Comple
 
 #### Figure apdx03 - García-Bañuelos et al model
 
-![ García-Bañuelos et al model](./fig/fig_apdx03__Garcia_model.jpg)
+![ García-Bañuelos et al model](./fig/fig_apdx03_Garcia_model.jpg)
 
 This model does not account for the process ending caused by dismissals.
 
