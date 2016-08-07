@@ -303,5 +303,78 @@ Figure 7b summarizes the errors made per event type.
 #### Figure 7b - errors made per event type
 
 ![figure 7b - errors made per event type](./fig/fig07b_errors_per_event_type.jpg) 
- 
-       
+
+## Appendix 
+
+It would have been really helpful to have more context information  
+(not only the event-log but also at the very least a verbal process description and a data dictionary of the attributes and their possible values).
+
+Some clues could be found by Googleing on : Italy police  "Road Traffic Fine Management"
+
+
+ [Mannhardt et al](http://www.win.tue.nl/~mdeleoni/documenti/DAB14.pdf) produced this model:
+
+#### Figure apdx01 - Mannhardt et al model
+
+![ Mannhardt et al model](./fig/fig_apdx01_Mannhard_et_al_model.jpg)
+
+Shown is a Petri-net that has been extended by the attributes.  
+
+Note that there are double pointed arrows <--> between places and "Payment" boxes.  
+These double arrows represent loops (one can pay in instalment).
+Furthermore note that the "payment" box occurs 3 times in the figure.
+
+Also Note that it is possible to appeal to a Judge without first appealing to the Prefecture.   
+
+Especially relevant is the attribute Dismissal.   
+It looks like the whole process can be dismissed at three points
+- during "create fine" the operator can stop further processing  
+(because of incorrect or insufficient input data?)
+- during "send appeal" the Prefecture can dismiss the case 
+(a better name for the event would have been "process Prefecture appeal"?)
+- during "Appeal to Judge" the Judge can dismiss the case.   
+
+If we export the event-log data to .cvs and read in in MS-Access, a simple SQL query produces this overview of possible values of dismissal.
+
+#### Figure apdx02 - values of the dismissal attribute and their counts 
+
+![ Mannhardt et al model](./fig/fig_apdx02_dismissal_vaule_counts.jpg)
+
+NIL probably means that there was no appeal or operator cancelling (i.e. missing value)  
+What the other values mean is unknown.
+
+If we had filtered and only analysed cases where dismissal = NIL, then we would have probably removed all cases that ended strangely (i.e. were dismissed by the operator or came before the Prefecture or the Judge).  
+If we had selected the non-NIL cases we would have gotten the cases that were handled by the Prefecture or the Judge (or were dismissed by the operator). 
+
+**note**  
+Mannhardt states that the model was partly manually constructed  
+(so even in the hands of experts ProM can not do all the work). 
+
+---
+
+Mannhardt gives a verbal partial process description on page 426 etc. of [Balanced multi-perspective checking of process conformance](https://pure.tue.nl/ws/files/17124376/MannhardtBalanced2016.pdf) 
+
+On page 427 Mannhardt specifies the dismissal values:
+
+- NIL means the case is not dismissed, the fine has to be paid.
+- G means case dismissal by a Judge
+- a # means case dismissal by the Prefecture
+
+We can guess that 
+- A,B,C etc describe the judgements of a Judge.
+- $,@,# describe the judgements of a Prefecture
+- 2,3,4,5 describe the reasons of the "create fine" operator to dismiss the case     
+
+If so, the fine has to be paid unless dismissal has value G,#,2,3,4 or 5.
+
+----
+
+García-Bañuelos et al. present a somewhat different Perti_net model in [Complete and interpretable conformance checking of business processes.](http://eprints.qut.edu.au/91552/7/91552.pdf)
+
+#### Figure apdx03 - García-Bañuelos et al model
+
+![ García-Bañuelos et al model](./fig/fig_apdx03__Garcia_model.jpg)
+
+This model does not account for the process ending because of dismissals.
+
+   
