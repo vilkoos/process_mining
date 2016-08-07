@@ -304,10 +304,13 @@ Figure 7b summarizes the errors made per event type.
 
 ![figure 7b - errors made per event type](./fig/fig07b_errors_per_event_type.jpg) 
 
-## Appendix 
+.
 
-It would have been really helpful to have more context information  
-(not only the event-log but also at the very least a verbal process description and a data dictionary of the attributes and their possible values).
+.
+
+# Appendix 
+
+It would have been really helpful to have more context information  (not only the event-log but also at the very least a verbal process description and a data dictionary of the attributes and their possible values).
 
 Some clues could be found by Googleing on : Italy police  "Road Traffic Fine Management"
 
@@ -320,13 +323,13 @@ Some clues could be found by Googleing on : Italy police  "Road Traffic Fine Man
 
 Shown is a Petri-net that has been extended by the attributes.  
 
-Note that there are double pointed arrows <--> between places and "Payment" boxes.  
-These double arrows represent loops (one can pay in instalment).
+Note that there are double pointed arrows <--> between places and "Payment" boxes.    
+These double arrows represent loops (one can pay in instalment).  
 Furthermore note that the "payment" box occurs 3 times in the figure.
 
 Also Note that it is possible to appeal to a Judge without first appealing to the Prefecture.   
 
-Especially relevant is the attribute Dismissal.   
+Especially relevant is the attribute Dismissal.     
 It looks like the whole process can be dismissed at three points
 - during "create fine" the operator can stop further processing  
 (because of incorrect or insufficient input data?)
@@ -340,7 +343,7 @@ If we export the event-log data to .cvs and read in in MS-Access, a simple SQL q
 
 ![ Mannhardt et al model](./fig/fig_apdx02_dismissal_vaule_counts.jpg)
 
-NIL probably means that there was no appeal or operator cancelling (i.e. missing value)  
+NIL probably means that there was no appeal or operator cancelling (i.e. missing value)    
 What the other values mean is unknown.
 
 If we had filtered and only analysed cases where dismissal = NIL, then we would have probably removed all cases that ended strangely (i.e. were dismissed by the operator or came before the Prefecture or the Judge).  
@@ -375,6 +378,6 @@ García-Bañuelos et al. present a somewhat different Perti_net model in [Comple
 
 ![ García-Bañuelos et al model](./fig/fig_apdx03__Garcia_model.jpg)
 
-This model does not account for the process ending because of dismissals.
+This model does not account for the process ending caused by dismissals.
 
    
