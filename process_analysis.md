@@ -306,6 +306,99 @@ Figure 7b summarizes the errors made per event type.
 
 .
 
+## 5 -  performance analysis
+
+The "replay a log on a Petri-net for performance/conformance analysis" plug-in can produce performance statistics.
+
+Figure 4f show the Petri-net presentation produced by this plug-in.   
+(use the zoom capabilities of your browser to enlarge the figure) 
+
+#### Figure 4f - a Petri-net process model on filtered data with performance info
+
+![figure 4e - a Petri-net process model on filtered data](./fig/fig04f_performance_analysis_on_selected_cases.jpg) 
+  
+Let's first have a look at the global statistics  
+
+#### Figure 8a - global performance statistics
+
+![figure 8a - a Petri-net process model on filtered data](./fig/fig08_global_performance_stats.jpg) 
+
+- First we see that the average case Throughput time is 14.46 months.    
+- Second we see that the minimum time is 0 months (probably some cases are dismissed in the very first step, the operator that does the data entry can cancel the entry when the data are not OK, see the appendix)
+- Third we see that some cases take 49.57 months
+- Forth there are 278 (about 3%) cases that are not perfectly fitting. 
+- Note well that we filtered on cases that are in an allowed end-state. This means that cases that are still in progress or lost in the system are not used in this analysis, we are analysing "normal" cases here   
+
+In figure 4f one activity and one node is coloured red, this indicates possible performance problems.  
+Figure 8b gives the statistics of the problematic activity "send for credit collection".
+
+#### Figure 8b - performance statistics "send for credit collection"
+
+![figure 8b - performance statistics "send for credit collection"](./fig/fig08b_performance_stats_send_for_credit.jpg) .
+
+The average waiting time is 22.59 months, but some cases take 43 months.  
+The waiting time is the time it takes the credit collecting agency to collect. It looks like that agency has a really huge back-log. Many fines could have been collected much earlier.    
+
+Figure 8c gives the statistics of the problematic node, the one directly before the activity "send for credit collection".
+
+#### Figure 8c - performance statistics of problematic node
+
+![figure 8c - performance statistics of problematic node](./fig/fig08c_performance_stats_node_before_send_for_credit.jpg) .
+
+From figure 6 we know that send for credit collection is done about once a year (the vertical stripes in the figure). So we could expect a maximum waiting times of somewhat less than 12 months. This time could be reduced by sending the open fines to the credit collectors more often each year (say every 3 months). 
+
+The node before the "payment" box is coloured orange in figure 4f. Inspection showed that the average waiting time here is almost 3 months, but in some cases it takes almost 3 years. The slow paying offenders are probably the people who went to court and have not paid awaiting the final verdict. The wait could be reduced if the Prefecture would work faster.
+
+Figure 8d gives some waiting time statistics of activities". 
+
+#### Figure 8d - waiting time statistics of activities (time in months)
+
+![8d - waiting time statistics of activities](./fig/fig08d_waiting_time_stats.jpg) .
+
+- note that the add penalty exactly takes two months (probably a fixed legal requirement).
+- The send fine activity might be speeded up, at first sight there is no reason why it would take 3.4 months on average (and sometimes almost a year). Maybe it takes time to locate the address to sent the fine to. 
+- The "Insert Fine Notification" can take more than a year for unknown reasons.
+- Note that we probably should make a distinction between several groups of cases: some are paid at once, some go to court and some are very slow to pay. Average waiting times are more meaningful when we calculate them for each type of case.     
+   
+All in all the delays are mainly coursed by external agencies (the Prefecture and the credit collectors).   
+The police authority can do little to improve this.
+
+.
+
+## 6 - Discussion
+
+It is clear that ProM enables the production of impressive visualizations and ample statistics.  
+It is also clear that we only scratched the surface yet (we only used say 6 plug-in of the say 50 that are available; and of those we only used the default settings and we did not use the attribute values at all).  
+Furthermore we analysed a relatively simple process.
+
+However based on this limited experience some preliminary conclusions can be drawn.
+
+**First** the found Petri net did not identify the loops, The trace fitness measure does not penalize this.  
+Internet research (see appendix) found that expert process discoverers had to add these loops by hand.  
+This hand editing requires subject matter expertise, so the process was only partly found by the algorithms.  
+
+**Second**, for this simple case, a conventional process annalist could have produced a better model within a day (better in the sense that one can interpret the model to understand what is going on in reality and discus it with business annalists). The main thing we would miss is the checking of how well all cases flow trough the model; bottle neck analysis would have been problematic also.
+
+Might it be that Prom is not that useful for process discovery? ProM's strengths might be primarily found in conformance checking and performance analysis. If it is not already yet possible, it would be good to extend ProM with a plug-in that allows the user to a enter a normative process model. That given model can than be played against the event-log.
+
+The found process is dependent  on the filtering we apply. So process discovery is at least partly dependent on the "art" of choosing the right data filtering settings. Again this casts serious doubts on pure algorithmic process discovery.
+
+**Third**, the filtering capabilities of ProM appear to be limited. If this were a real case I probably would have exported the data to a .c.sv. file and do the data exploration in R or Pandas.
+
+**Last, a fundamental point**, algorithms can only find patterns that are present in the data. This poses a very fundamental question: 
+
+> **Does the data in the event-log capture the process behaviour adequately?**.
+
+In real life applications I would expect that there are some activities missing. These are mainly activities that were manually handled and not properly recorded. These missing activities might wreck havoc on automatic process discovery.
+
+The event-log we used illustrates adequate capturing problem in yet an other way. According to the literature (see appendix) our event-log was synthetic (i.e. constructed using data present in a relational database used by the Italian police). If I had constructed the event-log I would have done that differently. For example the first activity should be split in two: first check the quality of the input data, if data are incomplete abort the whole process, second when data are complete enter them into the system. An other improvement would have been to introduce four different payment activities (one after creating the fine, one after sending the fine, one after notification and one after adding the penalty). A differently structured event-log would have resulted in a different model.  
+
+ 
+ 
+    
+      
+
+
 .
 
 # Appendix 
