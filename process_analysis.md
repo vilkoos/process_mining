@@ -310,7 +310,7 @@ Figure 7b summarizes the errors made per event type.
 
 The "replay a log on a Petri-net for performance/conformance analysis" plug-in can produce performance statistics.
 
-Figure 4f show the Petri-net presentation produced by this plug-in.   
+Figure 4f shows the Petri-net presentation produced by this plug-in.   
 (use the zoom capabilities of your browser to enlarge the figure) 
 
 #### Figure 4f - a Petri-net process model on filtered data with performance info
@@ -387,7 +387,7 @@ The found process is dependent  on the filtering we apply. So process discovery 
 
 **Last, a fundamental point**, algorithms can only find patterns that are present in the data. This poses a very fundamental question: 
 
-> **Does the data in the event-log capture the process behaviour adequately?**.
+> **Does the data in the event-log capture the process behaviour adequately?**
 
 In real life applications I would expect that there are some activities missing. These are mainly activities that were manually handled and not properly recorded. These missing activities might wreck havoc on automatic process discovery.
 
