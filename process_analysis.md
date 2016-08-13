@@ -4,9 +4,12 @@
 Author:  W.Dijkhuis   
 Date:  august 2016   
 
-## introduction
+## Introduction
 
-This report documents the use of [ProM Lite](http://www.promtools.org/doku.php?id=promlite11) to explore and analyse process behaviour and to find the process structure.  
+This report illustrates the use of [ProM Lite](http://www.promtools.org/doku.php?id=promlite11) to 
+- find process structure, and
+- analyse process behaviour.
+  
 The analysis is a mini project that was suggested by the authors of the TUe/FutureLearn MOOC [Introduction to Process Mining with ProM](https://www.futurelearn.com/courses/process-mining). 
 
 The data consist of an event log,  recording the processing of traffic fines issued by the Italian police.  
@@ -15,7 +18,7 @@ All other information had to be deduced from the data in the event-log.
 
 .
 
-## 1 - data acquisition
+## 1 - Data Acquisition
 
 The data were collected by the authors of the MOOC in a file Road_Traffic_Fine_Management_Process.xes.gz  
 The data were already correctly formatted to be used in ProM.  
@@ -23,7 +26,7 @@ The file could be downloaded from the internet.
 
 .
  
-## 2 -  data exploration
+## 2 -  Data Exploration
 
 The the ProM log visualizer gives the following overview
 
@@ -84,7 +87,7 @@ Now we can create figure 2c.
 
 Here we read:
 
-- The hypnotised standard sequence a->b->c-(d)->e indeed occurs in that order (i.e. in index positions 0,1,2,3 and 4).
+- The hypothesised standard sequence a->b->c-(d)->e indeed occurs in that order (i.e. in index positions 0,1,2,3 and 4).
 - Some fines are paid early (traces a->e and a->b->e also occur)
 - legal appeal events occur not that often, when they occur at index 4, 6, 7 or 8.
 
@@ -185,7 +188,7 @@ Something very funny is going on here, about half of the data are positioned on 
 
 .
 
-## 3 - data filtering
+## 3 - Data Filtering
 
 Figure 6 gives a hint which cases to select to get data that do behave orderly (not crazy as in figure 5).
 
@@ -242,7 +245,7 @@ Repeating figure 3 for the new subset gives:
 
 Futher more there are 6 traces (in 5 variants) that end in "appeal to Judge" and 2 cases end in "notify results appeal to offender". All 38 other cases where "notify results appeal to offender" does occur end in one of the three other valid ends. **note** only 8 traces out of 8534 end with  a"appeal to Judge" or "notify results appeal to offender", we could remove these without significant loss.
 
-## 4 - process discovery on filtered data
+## 4 - Process Discovery on filtered data
 
 First lets make the equivalent of figure 4a for our filtered data (i.e. use "mine for fuzzy model" plug-in).
 
@@ -280,6 +283,8 @@ also there can be an appeal to Judge without a previous verdict of a Prefecture
 
 The model could be easily adapted to solve the loop and the previous verdict problem.
 
+## 5 - Conformance Analysis.
+
 The "replay a log on Petri-net for Conformance Analysis" plug-in can check how well the Petri-net can reproduce the traces in the input event-log (the default settings were used). 
 
 This plug-in produces this variant of figure 4d.   
@@ -306,7 +311,7 @@ Figure 7b summarizes the errors made per event type.
 
 .
 
-## 5 -  performance analysis
+## 6 -  Performance Analysis
 
 The "replay a log on a Petri-net for performance/conformance analysis" plug-in can produce performance statistics.
 
@@ -365,10 +370,10 @@ The police authority can do little to improve this.
 
 .
 
-## 6 - Discussion
+## 7 - Discussion
 
 It is clear that ProM enables the production of impressive visualizations and ample statistics.  
-It is also clear that we only scratched the surface yet (we only used say 6 plug-in of the say 50 that are available; and of those we only used the default settings and we did not use the attribute values at all).  
+It is also clear that we only scratched the surface yet (we only used say 6 plug-in of the say 50 that are available; and with those we only used the default settings and we did not use the attribute values at all).  
 Furthermore we analysed a relatively simple process.
 
 However based on this limited experience some preliminary conclusions can be drawn.
@@ -381,9 +386,9 @@ This hand editing requires subject matter expertise, so the process was only par
 
 Might it be that Prom is not that useful for process discovery? ProM's strengths might be primarily found in conformance checking and performance analysis. If it is not already yet possible, it would be good to extend ProM with a plug-in that allows the user to a enter a normative process model. That given model can than be played against the event-log.
 
-The found process is dependent  on the filtering we apply. So process discovery is at least partly dependent on the "art" of choosing the right data filtering settings. Again this casts serious doubts on pure algorithmic process discovery.
+The found process is dependent  on the filtering we apply. So process discovery is at least partly dependent on the "art" of choosing the right data filtering settings. Again this casts serious doubts on purely algorithmic process discovery.
 
-**Third**, the filtering capabilities of ProM appear to be limited. If this were a real case I probably would have exported the data to a .c.sv. file and do the data exploration in R or Pandas.
+**Third**, the filtering capabilities of ProM appear to be limited. If this were a real case I probably would have exported the data to a .c.sv. file and do the data exploration and needed transformation in R or Pandas.
 
 **Last, a fundamental point**, algorithms can only find patterns that are present in the data. This poses a very fundamental question: 
 
@@ -393,13 +398,13 @@ In real life applications I would expect that there are some activities missing.
 
 The event-log we used illustrates adequate capturing problem in yet an other way. According to the literature (see appendix) our event-log was synthetic (i.e. constructed using data present in a relational database used by the Italian police). If I had constructed the event-log I would have done that differently. For example the first activity should be split in two: first check the quality of the input data, if data are incomplete abort the whole process, second when data are complete enter them into the system. An other improvement would have been to introduce four different payment activities (one after creating the fine, one after sending the fine, one after notification and one after adding the penalty). A differently structured event-log would have resulted in a different model.  
 
- 
- 
-    
-      
-
+.
 
 .
+
+.
+
+----------
 
 # Appendix 
 
